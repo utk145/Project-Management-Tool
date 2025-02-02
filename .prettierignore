@@ -1,0 +1,16 @@
+# Ignore specific directories and files
+/src/lib/jsonh/*
+/public/*
+/src/components/ui/*
+.eslintrc.json
+README.md
+LICENSE
+src/app/globals.css
+
+# Ignore config and lock files
+package.json
+package-lock.json
+tsconfig.json
+tailwind.config.ts
+next.config.js
+postcss.config.mjs

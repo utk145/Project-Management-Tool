@@ -29,8 +29,8 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## PR Guidelines:
+1. yarn build or npm run build should work locally, no exceptions.
+2. In case of no-unused-vars, if it is because of pending implementation, disable the rule in that block and add comment with justification.
+3. Any linting errors can be fixed using the following command: `npm run lint-fix`
+4. Any formatting errors can be fixed using the following command: `npm run format:fix`
