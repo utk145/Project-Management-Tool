@@ -1,5 +1,5 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript", "plugin:prettier/recommended"],
+  "extends": ["next/core-web-vitals", "next/typescript"],
   "ignorePatterns": [
     "/src/lib/jsonh/*",
     ".eslintrc.json",
