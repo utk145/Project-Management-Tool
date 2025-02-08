@@ -11,7 +11,6 @@ import { Input } from "@/components/ui/input";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 
-
 /**
  * SignInCard Component
  *
@@ -19,17 +18,21 @@ import { FaGithub } from "react-icons/fa";
  */
 export const SignInCard = () => {
     return (
-        <Card className="h-full w-full border-none shadow-none md:w-[487px]">
-            <CardHeader className="flex items-center justify-center p-7 text-center">
-                <CardTitle className="text-2xl">Sign In</CardTitle>
-                <CardDescription>Welcome back!</CardDescription>
+        <Card className="h-full w-full border-none bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:w-[487px]">
+            <CardHeader className="flex items-center justify-center p-8 text-center">
+                <CardTitle className="text-3xl font-bold text-primary">
+                    Sign In
+                </CardTitle>
+                <CardDescription className="mt-2 text-sm text-muted-foreground">
+                    Welcome back! Please log in to continue.
+                </CardDescription>
             </CardHeader>
             {/* Custom Separator */}
-            <div className="mb-2 px-7">
+            <div className="mb-4 px-8">
                 <DottedSeparator />
             </div>
-            <CardContent className="p-7">
-                <form className="space-y-4">
+            <CardContent className="p-8">
+                <form className="space-y-6">
                     <Input
                         required={true}
                         type="email"
@@ -37,6 +40,7 @@ export const SignInCard = () => {
                         value={""}
                         onChange={() => {}}
                         disabled={false}
+                        className="rounded-lg border-muted-foreground/30 focus:border-primary focus:ring-2 focus:ring-primary/50"
                     />
                     <Input
                         required={true}
@@ -47,10 +51,11 @@ export const SignInCard = () => {
                         disabled={false}
                         min={8}
                         max={256}
+                        className="rounded-lg border-muted-foreground/30 focus:border-primary focus:ring-2 focus:ring-primary/50"
                     />
                     <Button
                         variant="primary"
-                        className="w-full"
+                        className="w-full rounded-lg bg-gradient-to-r from-primary to-primary/90 py-3 text-lg font-semibold text-white shadow-lg transition-all hover:from-primary/90 hover:to-primary hover:shadow-primary/40"
                         size={"lg"}
                         disabled={false}
                     >
@@ -58,26 +63,26 @@ export const SignInCard = () => {
                     </Button>
                 </form>
             </CardContent>
-            <div className="px-7">
+            <div className="px-8">
                 <DottedSeparator />
             </div>
-            <CardContent className="flex flex-col gap-y-4 p-7">
+            <CardContent className="flex flex-col gap-y-4 p-8">
                 <Button
                     disabled={false}
-                    variant={"secondary"}
+                    variant={"outline"}
                     size={"lg"}
-                    className="w-full"
+                    className="w-full rounded-lg border-muted-foreground/30 py-3 text-lg font-semibold shadow-sm transition-all hover:border-primary hover:bg-primary/10 hover:text-primary"
                 >
-                    <FcGoogle className="mr-2 size-5" />
+                    <FcGoogle className="mr-3 size-6" />
                     Login with Google
                 </Button>
                 <Button
                     disabled={false}
-                    variant={"secondary"}
+                    variant={"outline"}
                     size={"lg"}
-                    className="w-full"
+                    className="w-full rounded-lg border-muted-foreground/30 py-3 text-lg font-semibold shadow-sm transition-all hover:border-primary hover:bg-primary/10 hover:text-primary"
                 >
-                    <FaGithub className="mr-2 size-5" />
+                    <FaGithub className="mr-3 size-6" />
                     Login with GitHub
                 </Button>
             </CardContent>
