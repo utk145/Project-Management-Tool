@@ -1,16 +1,14 @@
+"use client";
+import { SignUpCard } from "@/features/auth/components/SignUpCard";
 
 /**
  * Sign Up Page
- * 
+ *
  * @export
  * @returns {*}
  */
 const SignUpPage = () => {
-    return (
-        <div className="">
-            <h1 className="">Sign Up</h1>
-        </div>
-    );
+    return <SignUpCard />;
 };
 
 export default SignUpPage;
