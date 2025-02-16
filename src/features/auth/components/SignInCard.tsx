@@ -10,6 +10,32 @@ import {
 import { Input } from "@/components/ui/input";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { cn } from "@/lib/utils";
+import {
+    Form,
+    FormControl,
+    FormField,
+    FormItem,
+    FormMessage,
+} from "@/components/ui/form";
+
+/**
+ * SignInCard Schema
+ */
+const signInSchema = z.object({
+    email: z
+        .string()
+        .trim()
+        .min(1, "Required: Please enter your email address.")
+        .email(),
+    password: z
+        .string()
+        .min(1, "Required: Please enter your password.")
+        .max(256),
+});
 
 /**
  * SignInCard Component
@@ -17,6 +43,20 @@ import { FaGithub } from "react-icons/fa";
  * @returns {*}
  */
 export const SignInCard = () => {
+    // Initialize the form using react-hook-form and zodResolver for validation.
+    const form = useForm<z.infer<typeof signInSchema>>({
+        mode: "onChange", // Validate form on every change.
+        defaultValues: {
+            email: "",
+            password: "",
+        },
+        resolver: zodResolver(signInSchema), // Integrate Zod validation.
+    });
+
+    const onSubmitSignIn = (data: z.infer<typeof signInSchema>) => {
+        console.log(data);
+    };
+
     return (
         <Card className="h-full w-full border-none bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:w-[487px]">
             <CardHeader className="flex items-center justify-center p-8 text-center">
@@ -32,36 +72,61 @@ export const SignInCard = () => {
                 <DottedSeparator />
             </div>
             <CardContent className="p-8">
-                <form className="space-y-6">
-                    <Input
-                        required={true}
-                        type="email"
-                        placeholder="Please enter your email address"
-                        value={""}
-                        onChange={() => {}}
-                        disabled={false}
-                        className="rounded-lg border-muted-foreground/30 focus:border-primary focus:ring-2 focus:ring-primary/50"
-                    />
-                    <Input
-                        required={true}
-                        type="password"
-                        placeholder="Please enter your password"
-                        value={""}
-                        onChange={() => {}}
-                        disabled={false}
-                        min={8}
-                        max={256}
-                        className="rounded-lg border-muted-foreground/30 focus:border-primary focus:ring-2 focus:ring-primary/50"
-                    />
-                    <Button
-                        variant="primary"
-                        className="w-full rounded-lg bg-gradient-to-r from-primary to-primary/90 py-3 text-lg font-semibold text-white shadow-lg transition-all hover:from-primary/90 hover:to-primary hover:shadow-primary/40"
-                        size={"lg"}
-                        disabled={false}
+                <Form {...form}>
+                    <form
+                        className="space-y-6"
+                        onSubmit={form.handleSubmit(onSubmitSignIn)}
                     >
-                        Login
-                    </Button>
-                </form>
+                        <FormField
+                            name="email"
+                            control={form.control}
+                            render={({ field }) => {
+                                return (
+                                    <FormItem>
+                                        <FormControl>
+                                            <Input
+                                                {...field}
+                                                type="email"
+                                                placeholder="Please enter your email address"
+                                                className="rounded-lg border-muted-foreground/30 focus:border-primary focus:ring-2 focus:ring-primary/50"
+                                            />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                );
+                            }}
+                        />
+                        <FormField
+                            name="password"
+                            control={form.control}
+                            render={({ field }) => {
+                                return (
+                                    <FormItem>
+                                        <FormControl>
+                                            <Input
+                                                {...field}
+                                                type="password"
+                                                placeholder="Please enter your password address"
+                                                className="rounded-lg border-muted-foreground/30 focus:border-primary focus:ring-2 focus:ring-primary/50"
+                                            />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                );
+                            }}
+                        />
+                        <Button
+                            variant="primary"
+                            className={cn(
+                                "w-full rounded-lg py-3 text-lg font-semibold text-white shadow-lg transition-all hover:shadow-primary/40",
+                            )}
+                            size={"lg"}
+                            disabled={false}
+                        >
+                            Login
+                        </Button>
+                    </form>
+                </Form>
             </CardContent>
             <div className="px-8">
                 <DottedSeparator />
