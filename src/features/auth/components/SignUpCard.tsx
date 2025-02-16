@@ -10,6 +10,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import { cn } from "@/lib/utils";
 
 /**
  * Sign up card component
@@ -64,7 +65,9 @@ export const SignUpCard = () => {
                     />
                     <Button
                         variant="primary"
-                        className="w-full rounded-lg bg-gradient-to-r from-primary to-primary/90 py-3 text-lg font-semibold text-white shadow-lg transition-all hover:from-primary/90 hover:to-primary hover:shadow-primary/40"
+                        className={cn(
+                            "w-full rounded-lg py-3 text-lg font-semibold text-white shadow-lg transition-all hover:shadow-primary/40"
+                        )}
                         size={"lg"}
                         disabled={false}
                     >
