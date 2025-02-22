@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 
 import "./globals.css";
-import { QueryProvider } from "@/components/custom/query-provider";
+import { QueryProvider } from "@/components/providers/query-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
