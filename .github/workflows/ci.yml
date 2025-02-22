@@ -38,3 +38,26 @@ jobs:
       # Build the project
       - name: Build the project
         run: npm run build
+  code-smell-quality:
+    runs-on: ubuntu-latest
+    needs: build # Run this job only if the build job succeeds
+
+    steps:
+      # Check out the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Run additional code quality checks
+      - name: Run code quality checks
+        run: npm run code-smell:quality
