@@ -41,4 +41,14 @@ module.exports = {
         "@typescript-eslint/no-floating-promises": "warn", // Disallow unhandled promises
         "@typescript-eslint/consistent-type-imports": "warn", // Enforce consistent type imports
     },
+
+    overrides: [
+        {
+            // Disable @typescript-eslint/no-require-imports for tailwind.config.ts
+            files: ["tailwind.config.ts"],
+            rules: {
+                "@typescript-eslint/no-require-imports": "off",
+            },
+        },
+    ],
 };
