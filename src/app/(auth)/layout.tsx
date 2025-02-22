@@ -10,7 +10,7 @@ type AuthLayoutProps = {
 
 const AuthLayout = ({ children }: AuthLayoutProps) => {
     const pathName = usePathname();
-    const isSignIn = pathName==="/sign-in";
+    const isSignIn = pathName === "/sign-in";
     return (
         <main className="min-h-screen bg-neutral-100">
             <div className="mx-auto max-w-screen-2xl p-4">
@@ -18,7 +18,7 @@ const AuthLayout = ({ children }: AuthLayoutProps) => {
                     <Image src="/logo.svg" alt="logo" width={152} height={56} />
                     <Button asChild variant="secondary">
                         <Link href={isSignIn ? "/sign-up" : "/sign-in"}>
-                            {isSignIn ? "Register" : "Login"} 
+                            {isSignIn ? "Register" : "Login"}
                         </Link>
                     </Button>
                 </nav>

@@ -160,7 +160,7 @@ export const SignInCard = () => {
                     Don&apos;t have an account?{" "}
                     <Link
                         href="/sign-up"
-                        className="text-primary hover:underline text-blue-700"
+                        className="text-blue-700 text-primary hover:underline"
                     >
                         Sign up
                     </Link>
