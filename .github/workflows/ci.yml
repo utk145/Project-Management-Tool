@@ -64,7 +64,7 @@ jobs:
         id: eslint
         run: |
           # Run ESLint and capture the output
-          ESLINT_OUTPUT=$(npm run code-smell:quality 2>&1 | tee /dev/tty)
+          ESLINT_OUTPUT=$(npm run code-smell:quality 2>&1)
           echo "eslint_output<<EOF" >> $GITHUB_OUTPUT
           echo "$ESLINT_OUTPUT" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
