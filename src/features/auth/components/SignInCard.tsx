@@ -21,6 +21,7 @@ import {
     FormItem,
     FormMessage,
 } from "@/components/ui/form";
+import Link from "next/link";
 
 /**
  * SignInCard Schema
@@ -150,6 +151,20 @@ export const SignInCard = () => {
                     <FaGithub className="mr-3 size-6" />
                     Login with GitHub
                 </Button>
+            </CardContent>
+            <div className="px-8">
+                <DottedSeparator />
+            </div>
+            <CardContent className="flex items-center justify-center p-7">
+                <p className="text-sm text-muted-foreground">
+                    Don&apos;t have an account?{" "}
+                    <Link
+                        href="/sign-up"
+                        className="text-primary hover:underline text-blue-700"
+                    >
+                        Sign up
+                    </Link>
+                </p>
             </CardContent>
         </Card>
     );
