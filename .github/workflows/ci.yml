@@ -59,5 +59,23 @@ jobs:
         run: npm install
 
       # Run additional code quality checks
-      - name: Run code quality checks
-        run: npm run code-smell:quality
+       - name: Run code quality checks
+        id: eslint
+        run: |
+          # Run ESLint and capture the output
+          ESLINT_OUTPUT=$(npm run code-smell:quality 2>&1 | tee /dev/tty)
+          echo "eslint_output<<EOF" >> $GITHUB_OUTPUT
+          echo "$ESLINT_OUTPUT" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Display Code Smell Warnings
+        if: always() # Always run this step, even if ESLint fails
+        run: |
+          # Extract warnings from the ESLint output
+          WARNINGS=$(echo "${{ steps.eslint.outputs.eslint_output }}" | grep -i "warning" || true)
+          if [ -n "$WARNINGS" ]; then
+            echo "### Code Smell Warnings" >> $GITHUB_STEP_SUMMARY
+            echo "$WARNINGS" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "No code smell warnings found." >> $GITHUB_STEP_SUMMARY
+          fi
