@@ -1,11 +1,11 @@
 module.exports = {
     extends: ["./.eslintrc.json"], // Extend your existing ESLint config
-    
+
     parserOptions: {
-      project: "./tsconfig.json", // Path to your tsconfig.json
-      tsconfigRootDir: __dirname, // Root directory for TypeScript
+        project: "./tsconfig.json", // Path to your tsconfig.json
+        tsconfigRootDir: __dirname, // Root directory for TypeScript
     },
-  
+
     rules: {
         // Code Quality and Readability
         complexity: ["warn", 10], // Warn if cyclomatic complexity > 10
