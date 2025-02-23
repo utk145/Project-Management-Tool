@@ -13,6 +13,7 @@
     "code-smell:quality": "eslint --ext .js,.jsx,.ts,.tsx --config .codesmell-quality.js ."
   },
   "dependencies": {
+    "@hono/zod-validator": "^0.3.0",
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-avatar": "^1.1.2",
     "@radix-ui/react-checkbox": "^1.1.3",

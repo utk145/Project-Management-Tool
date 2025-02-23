@@ -33,5 +33,6 @@ Reference: https://stackoverflow.com/questions/13064613/how-to-prune-local-track
 
 - Add hono as dependency so that we can get rid(can still use the native api methodology) of file based routing in backend and utilize code based routing like we do in express.
   https://hono.dev/docs/getting-started/vercel
+  https://hono.dev/docs/guides/rpc
 
 - Tanstack query reference: https://tanstack.com/query/latest/docs/framework/react/guides/advanced-ssr#advanced-server-rendering
