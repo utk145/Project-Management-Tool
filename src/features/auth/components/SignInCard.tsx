@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/form";
 import Link from "next/link";
 import { signInSchema } from "@/server/api/models/auth.schema";
+import { useLogin } from "../usages/use-login";
 
 /**
  * SignInCard Component
@@ -40,8 +41,11 @@ export const SignInCard = () => {
         resolver: zodResolver(signInSchema), // Integrate Zod validation.
     });
 
+    const { mutate: login } = useLogin();
+
     const onSubmitSignIn = (data: z.infer<typeof signInSchema>) => {
         console.log(data);
+        login({ json: data });
     };
 
     return (

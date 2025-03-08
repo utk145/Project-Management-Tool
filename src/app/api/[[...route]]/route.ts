@@ -10,5 +10,5 @@ import authRouter from "@/server/api/routes/auth/route";
 const routes = app.route("/v1/auth", authRouter);
 
 export const GET = handle(app);
-
+export const POST = handle(app);
 export type ServerApiAppType = typeof routes;

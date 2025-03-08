@@ -6,7 +6,8 @@ const authAppRouter = new Hono().post(
     "/login",
     zValidator("json", signInSchema),
     (c) => {
-        return c.json({ success: 200 });
+        const { email, password } = c.req.valid("json");
+        return c.json({ email, password });
     },
 );
 
