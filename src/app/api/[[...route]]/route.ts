@@ -7,6 +7,7 @@ const app = new Hono().basePath("/api");
 // Import the auth router
 import authRouter from "@/server/api/routes/auth/route";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const routes = app.route("/v1/auth", authRouter);
 
 export const GET = handle(app);
