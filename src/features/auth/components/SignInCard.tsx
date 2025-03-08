@@ -44,7 +44,7 @@ export const SignInCard = () => {
     const { mutate: login } = useLogin();
 
     const onSubmitSignIn = (data: z.infer<typeof signInSchema>) => {
-        console.log(data);
+        console.log(data);  // IMPORTANT: Remove this line
         login({ json: data });
     };
 

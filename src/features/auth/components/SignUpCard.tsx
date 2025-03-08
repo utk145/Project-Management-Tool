@@ -22,22 +22,8 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 import Link from "next/link";
-
-/**
- * SignUpCard Schema
- */
-const signUpSchema = z.object({
-    name: z.string().trim().min(1, "Required: Please enter your name."),
-    email: z
-        .string()
-        .trim()
-        .min(1, "Required: Please enter your email address.")
-        .email(),
-    password: z
-        .string()
-        .min(1, "Required: Please enter your password.")
-        .max(256),
-});
+import { signUpSchema } from "@/server/api/models/auth.schema";
+import { useSignUp } from "../usages/use-signup";
 
 /**
  * SignUpCard Component
@@ -56,8 +42,11 @@ export const SignUpCard = () => {
         resolver: zodResolver(signUpSchema), // Integrate Zod validation.
     });
 
+    const { mutate: signUp } = useSignUp();
+
     const onSubmitSignUp = (data: z.infer<typeof signUpSchema>) => {
-        console.log(data);
+        console.log(data); // IMPORTANT: Remove this line
+        signUp({ json: data });
     };
 
     return (
