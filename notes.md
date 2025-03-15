@@ -38,5 +38,10 @@ Reference: https://stackoverflow.com/questions/13064613/how-to-prune-local-track
 - Tanstack query reference: https://tanstack.com/query/latest/docs/framework/react/guides/advanced-ssr#advanced-server-rendering
 
 - Appwrite SSR Auth reference:
-  https://appwrite.io/docs/products/auth/server-side-rendering
-  https://appwrite.io/docs/tutorials/nextjs-ssr-auth/step-1
+  - https://appwrite.io/docs/products/auth/server-side-rendering
+  - https://appwrite.io/docs/tutorials/nextjs-ssr-auth/step-1
+
+
+- use the 'server-only' package to prevent server only functionality from running on the client. 
+  - https://www.reddit.com/r/nextjs/comments/18ih6nd/useserver_vs_serveronly/
+  - https://stackoverflow.com/questions/77892580/nextjs-14-server-only-library
