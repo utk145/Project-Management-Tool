@@ -22,7 +22,7 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 import Link from "next/link";
-import { signUpSchema } from "@/server/api/models/auth.schema";
+import { signUpSchema } from "@/lib/server/api/models/auth.schema";
 import { useSignUp } from "../usages/use-signup";
 
 /**

@@ -5,10 +5,10 @@ import { handle } from "hono/vercel";
 const app = new Hono().basePath("/api");
 
 // Import the auth router
-import authRouter from "@/server/api/routes/auth/route";
+import authAppRouter from "@/lib/server/api/routes/auth/route";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const routes = app.route("/v1/auth", authRouter);
+const routes = app.route("/v1/auth", authAppRouter);
 
 export const GET = handle(app);
 export const POST = handle(app);
