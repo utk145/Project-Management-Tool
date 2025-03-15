@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-namespace */
-// - keeping the namespace for backward compatibility
+// keeping the namespace for backward compatibility
 export namespace AllCommonsConstants {
     export enum StatusCodes {
         /**
