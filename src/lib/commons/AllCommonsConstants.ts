@@ -370,7 +370,7 @@ export namespace AllCommonsConstants {
         TRACE = "TRACE",
     }
 
-    export enum Alphabet {
+    export enum UppercaseEnglishAlphabet {
         A_VAL = "A",
         B_VAL = "B",
         C_VAL = "C",
