@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-namespace */
 // keeping the namespace for backward compatibility
 export namespace AllCommonsConstants {
-    export enum StatusCodes {
+    export enum HttpStatusCodes {
         /**
          * Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.2.1
          *
@@ -398,4 +398,10 @@ export namespace AllCommonsConstants {
         Y_VAL = "Y",
         Z_VAL = "Z",
     }
+
+    export enum CookieNames {
+        AUTH_COOKIE_NAME = "pmt_ssr_auth_session_cookie",
+    }
+
+    export const CookieAuthExpiry = 60 * 60 * 24 * 30;
 }
