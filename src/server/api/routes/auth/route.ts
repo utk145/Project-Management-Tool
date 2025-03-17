@@ -1,5 +1,8 @@
+// External Libraries
 import { Hono } from "hono";
 import { zValidator } from "@hono/zod-validator";
+
+// Internal imports
 import { signInSchema, signUpSchema } from "../../models/auth.schema";
 
 const authAppRouter = new Hono()

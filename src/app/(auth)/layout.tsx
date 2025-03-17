@@ -1,5 +1,7 @@
 "use client";
+// Internal Modules
 import { Button } from "@/components/ui/button";
+// External Libraries
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";

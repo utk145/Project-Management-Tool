@@ -1,3 +1,4 @@
+// External Libraries
 import { Hono } from "hono";
 import { handle } from "hono/vercel";
 
@@ -5,6 +6,7 @@ import { handle } from "hono/vercel";
 const app = new Hono().basePath("/api");
 
 // Import the auth router
+// Internal imports
 import authRouter from "@/server/api/routes/auth/route";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
