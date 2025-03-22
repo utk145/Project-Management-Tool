@@ -4,15 +4,15 @@
  * - "info": General operational messages (e.g., "User registered").
  * - "warn": Warnings that indicate potential issues.
  * - "error": Errors that need immediate attention.
+ * - "fatal": Critical errors that require immediate attention (e.g., system crashes)
  */
-type LogLevel = "debug" | "info" | "warn" | "error";
+type LogLevel = "debug" | "info" | "warn" | "error" | "fatal";
 
 /**
- * Logger utility for structured and asynchronous logging.
- * This logger is optimized for performance and minimal overhead.
+ * Logger utility
  */
 class Logger {
-    // Current log level (e.g., "info", "debug")
+    // Current log level
     private level: LogLevel;
 
     /**
@@ -21,6 +21,9 @@ class Logger {
      * @param {LogLevel} level - The minimum log level to output. Defaults to "info".
      */
     constructor(level: LogLevel = "info") {
+        if (!["debug", "info", "warn", "error", "fatal"].includes(level)) {
+            throw new Error(`Invalid log level: ${level}`);
+        }
         this.level = level;
     }
 
@@ -162,6 +165,16 @@ class Logger {
      */
     error(message: string, context?: Record<string, unknown>) {
         this.log("error", message, context);
+    }
+
+    /**
+     * Logs a fatal error message.
+     *
+     * @param {string} message - The fatal error message.
+     * @param {Record<string, unknown>} [context] - Additional context to include in the log.
+     */
+    fatal(message: string, context?: Record<string, unknown>) {
+        this.log("fatal", message, context);
     }
 }
 
