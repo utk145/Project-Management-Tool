@@ -64,6 +64,7 @@ class Logger {
         const logEntry = {
             level,
             message,
+            timestamp: new Date().toISOString(),
             ...context,
         };
 
