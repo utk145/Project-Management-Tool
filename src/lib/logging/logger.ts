@@ -68,13 +68,7 @@ class Logger {
             ...context,
         };
 
-        // Manually serialize JSON to avoid overhead
-        return `{"level":"${logEntry.level}","message":"${logEntry.message}"${Object.entries(
-            logEntry,
-        )
-            .filter(([key]) => key !== "level" && key !== "message") // Exclude level and message from context
-            .map(([key, value]) => `,"${key}":${JSON.stringify(value)}`) // Serialize each key-value pair
-            .join("")}}`; // Combine all parts into a valid JSON string
+        return JSON.stringify(logEntry);
     }
 
     /**
