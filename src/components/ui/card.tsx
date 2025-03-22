@@ -1,5 +1,6 @@
+// External Libraries
 import * as React from "react"
-
+// Internal imports
 import { cn } from "@/lib/utils"
 
 const Card = React.forwardRef<

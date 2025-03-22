@@ -1,3 +1,4 @@
+// Internal imports
 import { DottedSeparator } from "@/components/custom/dotted-separator";
 import { Button } from "@/components/ui/button";
 import {
@@ -8,11 +9,6 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { FcGoogle } from "react-icons/fc";
-import { FaGithub } from "react-icons/fa";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { cn } from "@/lib/utils";
 import {
     Form,
@@ -21,9 +17,16 @@ import {
     FormItem,
     FormMessage,
 } from "@/components/ui/form";
-import Link from "next/link";
 import { signUpSchema } from "@/server/api/models/auth.schema";
 import { useSignUp } from "../usages/use-signup";
+
+// External Libraries
+import Link from "next/link";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 /**
  * SignUpCard Component

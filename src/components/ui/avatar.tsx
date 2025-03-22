@@ -1,8 +1,10 @@
 "use client"
 
+// External Libraries
 import * as React from "react"
 import * as AvatarPrimitive from "@radix-ui/react-avatar"
 
+// Internal imports
 import { cn } from "@/lib/utils"
 
 const Avatar = React.forwardRef<

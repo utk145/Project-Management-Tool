@@ -1,4 +1,5 @@
 "use client";
+// Internal imports
 import { SignInCard } from "@/features/auth/components/SignInCard";
 
 /**
