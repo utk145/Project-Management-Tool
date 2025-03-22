@@ -96,6 +96,7 @@ class Logger {
             info: "\x1b[32m", // Green
             warn: "\x1b[33m", // Yellow
             error: "\x1b[31m", // Red
+            fatal: "\x1b[41m\x1b[37m",
         };
 
         // Reset color after the log message
@@ -125,6 +126,11 @@ class Logger {
                 case "error":
                     console.error(
                         `${colors.error}${prefixedMessage}${resetColor}`,
+                    );
+                    break;
+                case "fatal":
+                    console.error(
+                        `${colors.fatal}${prefixedMessage}${resetColor}`,
                     );
                     break;
             }
