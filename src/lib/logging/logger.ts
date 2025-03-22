@@ -33,9 +33,18 @@ class Logger {
      * @param {LogLevel} level - The log level of the message.
      * @returns {boolean} - True if the message should be logged, false otherwise.
      */
+    private readonly logLevels = new Map<LogLevel, number>([
+        ["debug", 0],
+        ["info", 1],
+        ["warn", 2],
+        ["error", 3],
+        ["fatal", 4],
+    ]);
     private shouldLog(level: LogLevel): boolean {
-        const levels = ["debug", "info", "warn", "error"];
-        return levels.indexOf(level) >= levels.indexOf(this.level);
+        return (
+            (this.logLevels.get(level) ?? 0) >=
+            (this.logLevels.get(this.level) ?? 0)
+        );
     }
 
     /**
